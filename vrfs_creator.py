@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
@@ -6,10 +5,13 @@ from settings import *
 
 print("""
 
-	Gerador VRF RIS-DADOS v0.1
+	Gerador VRF RIS-DADOS v0.2
 
 	""")
 
+def check_id(data):
+	if data in pe_ids:
+		return pe_ids[data]
 
 ###Options VRF
 def fun_opt():	
@@ -52,19 +54,21 @@ def fun_zon():
 		print(vrf_texts["site_text"])
 	tipo_site = "-" + tipo
 	erip_one=raw_input(erips_text["ep"])
-	erip_one_id=raw_input(erips_text["epid"])
+	#erip_one_id=raw_input(erips_text["epid"])
 	erip_two=raw_input(erips_text["ep2"])
-	erip_two_id=raw_input(erips_text["ep2id"])
+	#erip_two_id=raw_input(erips_text["ep2id"])
 	vrf,code = select_vrf()
-	print_vrf_zon(site_id,vrf_id,tipo_site,vrf,code,erip_one_id,erip_two_id,erip_one,erip_two)
+	print_vrf_zon(site_id,vrf_id,tipo_site,vrf,code,erip_one,erip_two)
 ##Print VRF
-def print_vrf_zon(site_id,vrf_id,tipo_site,vrf,code,erip_one_id,erip_two_id,erip_one,erip_two):
+def print_vrf_zon(site_id,vrf_id,tipo_site,vrf,code,erip_one,erip_two):
 	print("\n\n")
 	print(desc["as"] + code + vrf_id + " [" + vrf + "] (" + vrf +  desc["geral"] + site_id + tipo_site + ")")
-	print("	" + desc["as"] + code + "00" + erip_one_id + " (" + vrf + desc["geral"] + site_id + tipo_site + ", RD, " + erip_one + ")")
-	print("	" + desc["as"] + code + "00" + erip_two_id + " (" + vrf + desc["geral"] + site_id + tipo_site + ", RD, " + erip_two + ")")
+	print("	" + desc["as"] + code + check_id(erip_one) + " (" + vrf + desc["geral"] + site_id + tipo_site + ", RD, " + erip_one + ")")
+	print("	" + desc["as"] + code + check_id(erip_two) + " (" + vrf + desc["geral"] + site_id + tipo_site + ", RD, " + erip_two + ")")
 	print("	" + desc["as"] + code + desc["palha"] + " (" + vrf + desc["geral"] + site_id + tipo_site + ", RTe)")
 	print("	" + desc["as"] + code + desc["palha"] + " (" + vrf + desc["geral"] + site_id + tipo_site + ", RTi)")
+
+
 ## VRF Options
 def fun_nos():	
 	site_id=raw_input(text["sid"])
@@ -81,17 +85,22 @@ def fun_nos():
 		print(vrf_texts["site_text"])
 	tipo_site = "-" + tipo
 	erip_one=raw_input(erips_text["ep"])
-	erip_one_id=raw_input(erips_text["epid"])
+	#erip_one_id=raw_input(erips_text["epid"])
 	vrf,code = select_vrf()
-	print_vrf_nos(site_id,vrf_id,tipo_site,vrf,code,erip_one_id,erip_one)
+	print_vrf_nos(site_id,vrf_id,tipo_site,vrf,code,erip_one)
+
 ##Print VRF
-def print_vrf_nos(site_id,vrf_id,tipo_site,vrf,code,erip_one_id,erip_one):	
+def print_vrf_nos(site_id,vrf_id,tipo_site,vrf,code,erip_one):	
 	print("\n\n")
 	print(desc["as"] + code + vrf_id + " [" + vrf + "] (" + vrf +  desc["geral"] + site_id + tipo_site + ")")
-	print("	" + desc["as"] + code + "00" + erip_one_id + " (" + vrf + desc["geral"] + site_id + tipo_site + ", RD, " + erip_one + ")")
+	print("	" + desc["as"] + code + check_id(erip_one) + " (" + vrf + desc["geral"] + site_id + tipo_site + ", RD, " + erip_one + ")")
 	print("	" + desc["as"] + code + desc["palha"] + " (" + vrf + desc["geral"] + site_id + tipo_site + ", RTe)")
 	print("	" + desc["as"] + code + desc["palha"] + " (" + vrf + desc["geral"] + site_id + tipo_site + ", RTi)")
 ############# FIM NGN ###################
+
+
+
+
 def select_vrf():
 	print(vrf_texts["cir_text"])
 	for linha in vrfs:
