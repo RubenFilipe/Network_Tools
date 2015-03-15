@@ -35,17 +35,17 @@ text={
 	"vnr" : "Nr VRF --> ",
 	"tps" : "Tipo de Site --> ",	
 	"c_mse" : "MSE --> ",
-	"menu2" : "\n 1 - Principal \n 2 - Backup \n 3 - Contigência \n",
-	"menu1" : "\n 1 - Optimus \n 2 - ZON \n 3 - NÓS NGN \n",
+	"menu2" : "\n 1 - Principal \n 2 - Backup \n 3 - Contigencia \n",
+	"menu1" : "\n 1 - Optimus \n 2 - ZON \n 3 - NOS NGN \n",
 	"c_vrf" : "Escolhe VRF --> ",
 
 }
 
 
 vrf_texts={
-	"list_text" : "Escolhe uma VRF da lista.",
-	"cir_text" : "Escolher VRF adequada ao Circuito!",
-	"site_text" : "Escolhe tipo de site correcto!\n",
+	"list_text" : "\nEscolhe uma VRF da lista.",
+	"cir_text" : "\nEscolher VRF adequada ao Circuito!",
+	"site_text" : "\nEscolhe tipo de site correcto!\n",
 
 
 }
@@ -58,6 +58,7 @@ erips_text={
 
 }
 
+VRFS_FILE_DIR="C:\Users\Admin\Desktop\vrfs.txt"
 ##### List PE's ID's , SOME RECORDS 
 pe_ids={
 
