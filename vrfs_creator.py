@@ -13,6 +13,15 @@ def check_id(data):
 	if data in pe_ids:
 		return pe_ids[data]
 
+def fun_match_vrf(var):
+	f = open(VRFS_FILE_DIR)
+	s = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
+	if s.find(var) != -1:
+	    print 'VRF Ja Existe.'
+	else:
+		print('VRF ainda nao existe!\n')
+		print("Adicionar ao Ficheiro?\n")
+
 ###Options VRF
 def fun_opt():	
 	site_id=raw_input(text["sid"])
@@ -30,7 +39,8 @@ def fun_opt():
 	tipo_site = "-" + tipo
 	mse=raw_input(text["c_mse"])
 	vrf,code = select_vrf()
-	print_vrf_opt(site_id,vrf_id,tipo_site,mse,vrf,code)
+	teste = print_vrf_opt(site_id,vrf_id,tipo_site,mse,vrf,code)
+	#print teste
 ##Print VRF
 def print_vrf_opt(site_id,vrf_id,tipo_site,mse,vrf,code):	
 	print("\n\n")
