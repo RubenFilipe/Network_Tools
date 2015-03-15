@@ -2,6 +2,6 @@
 Scripts para gestão de redes.
 
 
-VRFs Creator v0.1
+VRFs Creator v0.2
 
 I wrote a simple script to create VRFs (VPN Routing and Forwarding) and storage them to backoffice users.
